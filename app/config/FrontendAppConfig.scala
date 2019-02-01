@@ -1,3 +1,19 @@
+/*
+ * Copyright 2019 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package config
 
 import com.google.inject.{Inject, Singleton}
@@ -5,6 +21,8 @@ import play.api.{Configuration, Environment}
 import play.api.i18n.Lang
 import controllers.routes
 import uk.gov.hmrc.play.config.ServicesConfig
+
+import scala.collection.immutable.ListMap
 
 @Singleton
 class FrontendAppConfig @Inject() (override val runModeConfiguration: Configuration, environment: Environment) extends ServicesConfig {
@@ -26,6 +44,24 @@ class FrontendAppConfig @Inject() (override val runModeConfiguration: Configurat
   lazy val authUrl = baseUrl("auth")
   lazy val loginUrl = loadConfig("urls.login")
   lazy val loginContinueUrl = loadConfig("urls.loginContinue")
+  val percentageData: ListMap[String, String] = ListMap(
+    "welfare" -> "23.8",
+    "health" -> "19.9",
+    "statePensions" -> "12.8",
+    "education" -> "12",
+    "nationalDebtInterest" -> "6.1",
+    "defence" -> "5.3",
+    "publicOrderAndSafety" -> "4.3",
+    "transport" -> "4.3",
+    "businessAndIndustry" -> "2.9",
+    "GovernmentAdministration" -> "2.1",
+    "culture" -> "1.6",
+    "environment" -> "1.6",
+    "housingAndUtilities" -> "1.6",
+    "overseasAid" -> "1.2",
+    "euBudget" -> "0.7",
+    "total" -> "99.8"
+  )
 
   lazy val languageTranslationEnabled = runModeConfiguration.getBoolean("microservice.services.features.welsh-translation").getOrElse(true)
   def languageMap: Map[String, Lang] = Map(
