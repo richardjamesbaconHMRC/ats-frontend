@@ -10,4 +10,4 @@ GET        /this-service-has-been-reset                 controllers.SessionExpir
 
 GET        /unauthorised                                controllers.UnauthorisedController.onPageLoad
 
-GET        /howYourTaxWasSpent                       controllers.HowYourTaxWasSpentController.onPageLoad()
+GET        /how-your-tax-was-spent                       controllers.HowYourTaxWasSpentController.onPageLoad()

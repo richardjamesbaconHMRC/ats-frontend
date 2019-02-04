@@ -18,25 +18,49 @@ package views
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import org.scalatest._
+import play.api.i18n.Messages
+import play.twirl.api.Html
 import views.behaviours.ViewBehaviours
 import views.html.howYourTaxWasSpent
+class HowYourTaxWasSpentViewSpec extends ViewBehaviours with MustMatchers {
 
-class HowYourTaxWasSpentViewSpec extends ViewBehaviours {
+  implicit override val messages: Messages = play.api.i18n.Messages.Implicits.applicationMessages
 
-  val messageKeyPrefix = "howYourTaxWasSpent"
-
-  def createView = () => howYourTaxWasSpent(frontendAppConfig, frontendAppConfig.percentageData.keySet.toSeq)(fakeRequest, messages)
+  def createView: Html  = howYourTaxWasSpent(frontendAppConfig, frontendAppConfig.percentageData.keySet.toSeq)(fakeRequest, messages)
   def doc: Document = Jsoup.parse(createView.toString())
+  val percentChar: String = "%"
 
   "HowYourTaxWasSpent view" must {
-    behave like normalPage(createView, messageKeyPrefix)
 
-    behave like pageWithBackLink(createView)
+    "Display the correct title" in {
+      doc.title mustBe messages("howYourTaxWasSpent.title")
+    }
 
-    "Render the table correctly" in {
+    "Display the correct heading" in {
+      doc.getElementById("heading").text mustBe messages("howYourTaxWasSpent.heading")
+    }
 
-      ???
+    "Display the correct subheading" in {
+      doc.getElementById("subheading").text mustBe messages("howYourTaxWasSpent.subheading")
+    }
 
+    "Display the correct caveat" in {
+      doc.getElementById("caveat").text mustBe messages("howYourTaxWasSpent.caveat")
+    }
+
+    "Rendered table" should {
+
+      val keys: Seq[String] = frontendAppConfig.percentageData.keySet.toSeq
+
+      for (key <- keys) {
+
+        s"Render $key values properly" in {
+
+          doc.body.getElementById(key).child(0).text() mustBe messages(s"howYourTaxWasSpent.table.department.$key")
+          doc.body.getElementById(key).child(1).text() mustBe frontendAppConfig.percentageData(key) + percentChar
+        }
+      }
     }
   }
 }
