@@ -65,3 +65,7 @@ howYourTaxWasSpent.table.department.housingAndUtilities = Housing and utilities,
 howYourTaxWasSpent.table.department.overseasAid = Overseas aid
 howYourTaxWasSpent.table.department.euBudget = UK contribution to the EU budget
 howYourTaxWasSpent.table.department.total = Total
+
+whatTypeOfSummaryYouWant.title = type of annual summary
+whatTypeOfSummaryYouWant.heading = What type of annual tax summary do you want?
+whatTypeOfSummaryYouWant.subheading = You can choose to see a breakdown of how the UK government spends the tax you pay in percentages or amounts.

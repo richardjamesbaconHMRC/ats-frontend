@@ -11,3 +11,7 @@ GET        /this-service-has-been-reset                 controllers.SessionExpir
 GET        /unauthorised                                controllers.UnauthorisedController.onPageLoad
 
 GET        /how-your-tax-was-spent                       controllers.HowYourTaxWasSpentController.onPageLoad()
+
+GET        /summary-type                                controllers.WhatTypeOfSummaryYouWantController.onPageLoad()
+
+POST       /summary-type                                controllers.WhatTypeOfSummaryYouWantController.onSubmit()

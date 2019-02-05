@@ -17,23 +17,27 @@
 package controllers
 
 import config.FrontendAppConfig
-import controllers.actions._
+import forms.WhatTypeOfSummaryYouWantFormProvider
 import javax.inject.Inject
+import models.WhatTypeOfSummaryYouWantQuestion
+import play.api.data.Form
 import play.api.i18n.{I18nSupport, MessagesApi}
-import play.api.mvc.Action
+import play.api.mvc.{Action, AnyContent}
 import uk.gov.hmrc.play.bootstrap.controller.FrontendController
-import views.html.howYourTaxWasSpent
+import views.html.what_type_of_summary_you_want
 
-class HowYourTaxWasSpentController @Inject()(appConfig: FrontendAppConfig,
-                                         override val messagesApi: MessagesApi,
-                                         getData: DataRetrievalAction,
-                                         requireData: DataRequiredAction
-                                         ) extends FrontendController with I18nSupport {
+class WhatTypeOfSummaryYouWantController @Inject()(val appConfig: FrontendAppConfig,
+                                                   formProvider: WhatTypeOfSummaryYouWantFormProvider,
+                                                   val messagesApi: MessagesApi) extends FrontendController with I18nSupport {
 
-  def onPageLoad() = Action {
-    implicit request =>
-      val dataFields: Seq[String] = appConfig.percentageData.keySet.toSeq
-      Ok(howYourTaxWasSpent(appConfig, dataFields))
+  val form: Form[WhatTypeOfSummaryYouWantQuestion] = formProvider()
+
+  def onPageLoad: Action[AnyContent] = Action { implicit request =>
+    Ok(what_type_of_summary_you_want(appConfig, form))
   }
 
+  def onSubmit() = Action {
+    implicit request =>
+    Ok
+  }
 }
