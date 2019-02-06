@@ -1,5 +1,5 @@
 # Add all the application routes to the app.routes file
-->         /ats-frontend                    app.Routes
+->         /tax-summary               app.Routes
 ->         /                          health.Routes
 ->     	   /template                  template.Routes
 

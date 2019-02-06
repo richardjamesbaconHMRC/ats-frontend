@@ -42,3 +42,34 @@ site.textarea.char_limit = (Limit is {0} characters)
 
 unauthorised.title = You can’t access this service with this account
 unauthorised.heading = You can’t access this service with this account
+
+howYourTaxWasSpent.title = How your tax was spent
+howYourTaxWasSpent.heading = How your tax was spent
+howYourTaxWasSpent.subheading = This shows how the Income Tax and National Insurance contributions you entered for last year were spent.
+howYourTaxWasSpent.caveat = It does not include VAT, excise or other duties
+howYourTaxWasSpent.table.department.title = Department spend
+howYourTaxWasSpent.table.percentage.title  = Percentage of your tax
+howYourTaxWasSpent.table.department.welfare = Welfare
+howYourTaxWasSpent.table.department.health = Health
+howYourTaxWasSpent.table.department.statePensions = State Pensions
+howYourTaxWasSpent.table.department.education = Education
+howYourTaxWasSpent.table.department.nationalDebtInterest = National debt interest
+howYourTaxWasSpent.table.department.defence = Defence
+howYourTaxWasSpent.table.department.publicOrderAndSafety = Public order and safety
+howYourTaxWasSpent.table.department.transport = Transport
+howYourTaxWasSpent.table.department.businessAndIndustry = Business and industry
+howYourTaxWasSpent.table.department.GovernmentAdministration = Government administration
+howYourTaxWasSpent.table.department.culture = Culture, like sports, libraries and museums
+howYourTaxWasSpent.table.department.environment = Environment
+howYourTaxWasSpent.table.department.housingAndUtilities = Housing and utilities, like street lighting
+howYourTaxWasSpent.table.department.overseasAid = Overseas aid
+howYourTaxWasSpent.table.department.euBudget = UK contribution to the EU budget
+howYourTaxWasSpent.table.department.total = Total
+
+whatTypeOfAnnualTaxSummary.title = What type of annual tax summary do you want?
+whatTypeOfAnnualTaxSummary.heading = What type of annual tax summary do you want?
+whatTypeOfAnnualTaxSummary.subheading = You can choose to see a breakdown of how the UK government spends the tax you pay in percentages or amounts.
+whatTypeOfAnnualTaxSummary.checkYourAnswersLabel = whatTypeOfAnnualTaxSummary
+whatTypeOfAnnualTaxSummary.error.required = Select the type of annual tax summary do you want
+whatTypeOfAnnualTaxSummaryQuestion.Percentages = Percentages
+whatTypeOfAnnualTaxSummaryQuestion.Amounts = Amounts
